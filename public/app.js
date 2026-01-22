@@ -103,7 +103,7 @@ function updateCountdowns() {
     const h = Math.floor(diff / 3600000) % 24;
     const m = Math.floor(diff / 60000) % 60;
 
-    el.textContent = `${d}days ${h}hrs ${m}mins`;
+    el.textContent = `${d}d ${h}h ${m}m`;
   });
 }
 
