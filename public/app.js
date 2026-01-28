@@ -36,6 +36,9 @@ function renderEvents() {
     card.innerHTML = `
       <button class="delete-btn">✕</button>
       <h3>${event.description}</h3>
+      <div class="event-date">
+        ${formatEventDate(event.date)}
+        </div>
       <div class="time" id="time-${index}"></div>
     `;
 
@@ -104,6 +107,18 @@ function updateCountdowns() {
     const m = Math.floor(diff / 60000) % 60;
 
     el.textContent = `${d}d ${h}h ${m}m`;
+  });
+}
+
+function formatEventDate(isoString) {
+  const d = new Date(isoString);
+  return d.toLocaleString(undefined, {
+    weekday: "short",
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    hour: "numeric",
+    minute: "2-digit"
   });
 }
 
