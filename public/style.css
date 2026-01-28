@@ -60,11 +60,6 @@ h1 {
   border-radius: 20px;
 }
 
-.event-date {
-  font-size: 0.9em;
-  opacity: 0.85;
-  margin-bottom: 6px;
-}
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
