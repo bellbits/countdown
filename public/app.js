@@ -36,10 +36,10 @@ function renderEvents() {
     card.innerHTML = `
       <button class="delete-btn">✕</button>
       <h3>${event.description}</h3>
-      <div class="event-date">
+      //<div class="event-date">
         //${formatEventDate(event.date)}
         ${event.description}
-        </div>
+       // </div>
       <div class="time" id="time-${index}"></div>
     `;
 
