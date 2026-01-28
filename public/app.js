@@ -36,7 +36,6 @@ function renderEvents() {
     card.innerHTML = `
       <button class="delete-btn">✕</button>
       <h3>${event.description}</h3>
-      ${event.time}
       <div class="time" id="time-${index}"></div>
     `;
 
