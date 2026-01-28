@@ -36,8 +36,8 @@ function renderEvents() {
     card.innerHTML = `
       <button class="delete-btn">✕</button>
       <h3>${event.description}</h3>
-      <div class="time" id="time">
-      <h3><div class="time" id="time-${index}"></div></h3>
+      ${event.time}
+      <div class="time" id="time-${index}"></div>
     `;
 
     card.querySelector(".delete-btn").onclick = async () => {
