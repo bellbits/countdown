@@ -33,9 +33,16 @@ function renderEvents() {
     card.draggable = true;
     card.dataset.index = index;
 
+    const eventDate = new Date(event.date);
+    const formattedDate = eventDate.toLocaleString(undefined, {
+      dateStyle: "medium",
+      timeStyle: "short"
+    });
+
     card.innerHTML = `
       <button class="delete-btn">✕</button>
       <h3>${event.description}</h3>
+      <div class="event-date">📅 ${formattedDate}</div>
       <div class="time" id="time-${index}"></div>
     `;
 
@@ -89,24 +96,25 @@ addBtn.onclick = async () => {
 
 function updateCountdowns() {
   const now = new Date();
+
   events.forEach((event, i) => {
     const el = document.getElementById(`time-${i}`);
     if (!el) return;
 
     const diff = new Date(event.date) - now;
+
     if (diff <= 0) {
       el.textContent = "Started!";
       return;
     }
 
-    const d = Math.floor(diff / 86400000);
-    const h = Math.floor(diff / 3600000) % 24;
-    const m = Math.floor(diff / 60000) % 60;
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor(diff / 3600000) % 24;
+    const minutes = Math.floor(diff / 60000) % 60;
 
-    el.textContent = `${d}d ${h}h ${m}m`;
+    el.textContent = `⏳ ${days}d ${hours}h ${minutes}m`;
   });
 }
-
 
 loadEvents();
 setInterval(updateCountdowns, 1000);
